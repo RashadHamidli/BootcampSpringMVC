@@ -14,9 +14,6 @@ public class Exercise {
     private static final String[] teens = {
             "on", "on bir", "on iki", "on üç", "on dörd", "on beş", "on altı", "on yeddi", "on səkkiz", "on doqquz"
     };
-    private static final String[] hundreds = {
-            "yüz",
-    };
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -35,11 +32,6 @@ public class Exercise {
         }
 
         String words = "";
-        if ((number / 1000) > 0) {
-            words += hundreds[number / 1000] + " min ";
-            number %= 1000;
-
-        }
 
         if ((number / 100) > 0) {
             words += ones[number / 100] + " yüz ";
