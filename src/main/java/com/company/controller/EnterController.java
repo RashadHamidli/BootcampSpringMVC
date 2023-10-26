@@ -5,7 +5,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 
-@Controller
+@Controlle
+
 public class EnterController {
     @GetMapping
     public String enter(ModelMap modelMap) {
