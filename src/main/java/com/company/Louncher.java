@@ -9,5 +9,5 @@ public class Louncher {
     public static void main(String[] args) {
         SpringApplication.run(Louncher.class, args);
     }
-}
 
+}
