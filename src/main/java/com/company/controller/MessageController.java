@@ -23,7 +23,7 @@ public class MessageController {
         return message.getMessage();
     }
 
-    @GetMapping("/message3")
+    @GetMapping(value = "/message3", params = {"id", "name"})
     public String index3() {
         Message message = new Message();
         message.setMessage("Hello Spring MVC! message 3");
