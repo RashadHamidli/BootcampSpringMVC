@@ -1,6 +1,5 @@
 package com.company;
 
-import com.company.dto.UserDTO;
 import com.company.entity.User;
 import com.company.services.UserService;
 import org.springframework.boot.CommandLineRunner;
@@ -8,13 +7,9 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.stereotype.Component;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
-
 
 @SpringBootApplication
-public class Louncher {
+public class Louncher implements CommandLineRunner {
     private final UserService userService;
 
     public Louncher(UserService userService) {
@@ -25,17 +20,14 @@ public class Louncher {
         SpringApplication.run(Louncher.class, args);
     }
 
-    @Component
-    class WriteDate implements CommandLineRunner {
-        @Override
-        public void run(String... args) throws Exception {
-            startInstance();
-        }
+    @Override
+    public void run(String... args) throws Exception {
+        startApp();
     }
 
-    public void startInstance() {
-        User mrRashad = userService.findByEmailAndPassword("mr_rashad@email.com", "123456");
-        System.out.println(mrRashad);
+    public void startApp() {
+        User user = userService.findByEmailAndPassword("mr_rashad@email.com", "123456");
+        System.out.println(user);
     }
 
 }
