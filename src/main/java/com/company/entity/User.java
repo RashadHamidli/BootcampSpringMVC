@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Value;
 @Table(name = "users")
 @RequiredArgsConstructor
 @AllArgsConstructor
-@NoArgsConstructor
 @Getter
 @Setter
 public class User {
@@ -30,5 +29,10 @@ public class User {
         this.surname = surname;
         this.email = email;
         this.password = password;
+    }
+
+    @Override
+    public String toString() {
+        return String.format("%d. name: %s | surname: %s | email: %s | password: %s", id, name, surname, email, password);
     }
 }

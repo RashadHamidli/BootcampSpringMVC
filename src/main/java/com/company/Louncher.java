@@ -8,6 +8,9 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
+import java.util.List;
+
 
 @SpringBootApplication
 public class Louncher {
@@ -23,12 +26,14 @@ public class Louncher {
 
     @Component
     class WriteDate implements CommandLineRunner {
-
         @Override
         public void run(String... args) throws Exception {
-            User user=new User("Rashad", "Hamidli", "mr_rashad", "123456");
-            userService.addUser(user);
+            startInstance();
         }
+    }
+
+    public void startInstance() {
+        userService.getAll().stream().toList().forEach(System.out::println);
 
     }
 
