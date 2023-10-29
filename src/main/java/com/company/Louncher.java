@@ -10,6 +10,7 @@ import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 
 @SpringBootApplication
@@ -33,8 +34,8 @@ public class Louncher {
     }
 
     public void startInstance() {
-        userService.getAll().stream().toList().forEach(System.out::println);
-
+        User mrRashad = userService.findByEmailAndPassword("mr_rashad@email.com", "123456");
+        System.out.println(mrRashad);
     }
 
 }

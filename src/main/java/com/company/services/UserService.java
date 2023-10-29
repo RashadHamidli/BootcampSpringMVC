@@ -17,13 +17,9 @@ public class UserService {
         this.userRepository = userRepository;
     }
 
-//    public List<User> getAll(String name, String surname, String email, String password) {
-//        return userRepository.getAll(name, surname, email, password);
-//    }
     public List<User> getAll() {
         return userRepository.findAll();
     }
-
 
     public User findByEmailAndPassword(String email, String password) {
         return userRepository.findByEmailAndPassword(email, password);
@@ -33,23 +29,22 @@ public class UserService {
         return userRepository.findByEmail(email);
     }
 
-
-//    public boolean updateUser(User u) {
-//        return userRepository.updateUser(u);
-//    }
-
+    public User updateUser(User user) {
+        return userRepository.save(user);
+    }
 
     public void removeUserById(Long id) {
         userRepository.deleteById(id);
     }
+
     public String removeUserByName(String name) {
         userRepository.deleteUserByName(name);
         return "delete successfully";
     }
 
 
-    public User getById(Long id) {
-        return userRepository.getById(id);
+    public Optional<User> findById(Long id) {
+        return userRepository.findById(id);
     }
 
 
