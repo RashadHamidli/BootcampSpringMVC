@@ -10,9 +10,8 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {
-    @Modifying
-    @Transactional
+
     @Query("INSERT INTO User u (u.name, u.surname, u.email, u.password) VALUES (:name, :surname, :email, :password)")
-    void createUser(@Param("name") String name, @Param("surname") String surname, @Param("email") String email, @Param("password") String password);
+    User createUser(@Param("name") String name, @Param("surname") String surname, @Param("email") String email, @Param("password") String password);
 
 }
