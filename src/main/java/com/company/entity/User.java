@@ -10,7 +10,6 @@ import org.springframework.beans.factory.annotation.Value;
 @Entity
 @Table(name = "users")
 @RequiredArgsConstructor
-@NoArgsConstructor
 @Getter
 @Setter
 public class User {

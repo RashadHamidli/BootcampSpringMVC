@@ -5,6 +5,7 @@ import com.company.entity.User;
 import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -16,8 +17,11 @@ public class UserService {
         this.userRepository = userRepository;
     }
 
-    public List<User> getAll(String name, String surname, Integer nationalityId) {
-        return userRepository.getAll(name, surname, nationalityId);
+//    public List<User> getAll(String name, String surname, String email, String password) {
+//        return userRepository.getAll(name, surname, email, password);
+//    }
+    public List<User> getAll() {
+        return userRepository.findAll();
     }
 
 
@@ -30,22 +34,22 @@ public class UserService {
     }
 
 
-    public boolean updateUser(User u) {
-        return userRepository.updateUser(u);
+//    public boolean updateUser(User u) {
+//        return userRepository.updateUser(u);
+//    }
+
+
+    public void removeUser(Long id) {
+        userRepository.deleteById(id);
+    }
+
+    public User getById(Long id) {
+        return userRepository.getById(id);
     }
 
 
-    public boolean removeUser(int id) {
-        return userRepository.removeUser(id);
-    }
-
-    public User getById(int userId) {
-        return userRepository.getById(userId);
-    }
-
-
-    public boolean addUser(User u) {
-        return userRepository.addUser(u);
+    public User addUser(User user) {
+        return userRepository.save(user);
     }
 
 }
