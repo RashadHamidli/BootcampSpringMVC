@@ -28,8 +28,7 @@ public class Louncher implements CommandLineRunner {
     }
 
     public void startApp() {
-        Optional<User> user = userService.findById(33L);
-        userService.updateUser(33L, new User("bbb", user.get().getSurname(), user.get().getEmail(), "bbb"));
+        userService.getAll().forEach(System.out::println);
     }
 
 }
