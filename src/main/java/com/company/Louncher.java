@@ -28,7 +28,8 @@ public class Louncher implements CommandLineRunner {
     }
 
     public void startApp() {
-        userService.getAll().forEach(System.out::println);
+        User user = userService.findAllByEmail("mr_rashad@email.com");
+        System.out.println(user);
     }
 
 }
