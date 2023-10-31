@@ -29,12 +29,22 @@ public class UserService {
         return userRepository.findByEmail(email);
     }
 
-    public User updateUser(User user) {
-        return userRepository.save(user);
+    public Optional<User> updateUser(Long id, User newUser) {
+        Optional<User> user = userRepository.findById(id);
+        if (user.isPresent()) {
+            User foundUser = user.get();
+            foundUser.setName(newUser.getName());
+            foundUser.setSurname(newUser.getSurname());
+            foundUser.setEmail(newUser.getEmail());
+            foundUser.setPassword(newUser.getPassword());
+            userRepository.save(foundUser);
+        }
+        return null;
     }
 
-    public void removeUserById(Long id) {
+    public String removeUserById(Long id) {
         userRepository.deleteById(id);
+        return "delete successfully";
     }
 
     public String removeUserByName(String name) {

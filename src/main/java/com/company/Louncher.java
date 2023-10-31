@@ -7,6 +7,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.stereotype.Component;
 
+import java.util.Optional;
+
 
 @SpringBootApplication
 public class Louncher implements CommandLineRunner {
@@ -26,8 +28,8 @@ public class Louncher implements CommandLineRunner {
     }
 
     public void startApp() {
-        User user = userService.findByEmailAndPassword("mr_rashad@email.com", "123456");
-        System.out.println(user);
+        Optional<User> user = userService.findById(33L);
+        userService.updateUser(33L, new User("bbb", user.get().getSurname(), user.get().getEmail(), "bbb"));
     }
 
 }
