@@ -27,7 +27,7 @@ public class Louncher implements CommandLineRunner {
         startApp();
     }
 
-    public void startApp() {
+    public void startApp(){
         User user = userService.findAllByEmail("mr_rashad@email.com");
         System.out.println(user);
     }
