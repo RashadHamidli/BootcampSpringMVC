@@ -6,8 +6,8 @@
     <artifactId>TestSpringBootApp</artifactId>
     <version>0.0.1</version>
     <packaging>war</packaging>
-    <name>TestSpringBootApp</name>
-    <description>TestSpringBootApp</description>
+    <name>BootcampSpringMVC</name>
+    <description>BootcampSpringMVC</description>
     <properties>
         <java.version>20</java.version>
         <maven.compiler.source>20</maven.compiler.source>
