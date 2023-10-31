@@ -28,8 +28,8 @@ public class Louncher implements CommandLineRunner {
     }
 
     public void startApp(){
-        User user = userService.findAllByEmail("mr_rashad@email.com");
-        System.out.println(user);
+        User byEmailAndPassword = userService.findByEmailAndPassword("mr_rashad@email.com", "123456");
+        System.out.println(byEmailAndPassword);
     }
 
 }
