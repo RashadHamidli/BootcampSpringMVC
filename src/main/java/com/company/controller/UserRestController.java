@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/user")
@@ -41,19 +42,33 @@ public class UserRestController {
         return "delete successfully";
     }
 
+//    @PostMapping("/update/{id}")
+//    public ResponseEntity<String> updateUser(@RequestBody UserDTO userDTO, @PathVariable Long id) {
+//        Optional<User> optionalUser = userService.findById(id);
+//        if (optionalUser.isPresent()) {
+//            User user = optionalUser.get();
+//            user.setName(userDTO.getName());
+//            user.setSurname(userDTO.getSurname());
+//            user.setEmail(userDTO.getEmail());
+//            user.setPassword(userDTO.getPassword());
+//            userService.updateUser(id, user);
+//            return ResponseEntity.ok("Update successfully");
+//        } else {
+//            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("User not found");
+//        }
+//    }
+
+
     @PostMapping("/update/{id}")
     public ResponseEntity<String> updateUser(@RequestBody UserDTO userDTO, @PathVariable Long id) {
-        if (userService.existsById(id)) {
-            User user = userService.findById(id).get();
-            user.setName(userDTO.getName());
-            user.setSurname(userDTO.getSurname());
-            user.setEmail(userDTO.getEmail());
-            user.setPassword(userDTO.getPassword());
-            userService.updateUser(user);
-            return ResponseEntity.ok("Update successfully");
-        } else {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("User not found");
-        }
+        User user = new User();
+        user.setName(userDTO.getName());
+        user.setSurname(userDTO.getSurname());
+        user.setEmail(userDTO.getEmail());
+        user.setPassword(userDTO.getPassword());
+        System.out.println("user =" + user);
+        userService.updateUser(id, user);
+        return ResponseEntity.ok("Update successfully");
     }
 
 }
