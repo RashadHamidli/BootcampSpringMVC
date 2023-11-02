@@ -29,7 +29,7 @@ public class UserService {
         return userRepository.findByEmail(email);
     }
 
-    public Optional<User> updateUser(Long id, User newUser) {
+    public User updateUser(Long id, User newUser) {
         Optional<User> user = userRepository.findById(id);
         if (user.isPresent()) {
             User foundUser = user.get();
@@ -38,9 +38,22 @@ public class UserService {
             foundUser.setEmail(newUser.getEmail());
             foundUser.setPassword(newUser.getPassword());
             userRepository.save(foundUser);
-        }
-        return null;
+            return foundUser;
+        } else
+            return null;
     }
+//    public User updateOneUser(Long userId, User newUser) {
+//        Optional<User> user = userRepository.findById(userId);
+//        if(user.isPresent()) {
+//            User foundUser = user.get();
+//            foundUser.setUserName(newUser.getUserName());
+//            foundUser.setPassword(newUser.getPassword());
+//            foundUser.setAvatar(newUser.getAvatar());
+//            userRepository.save(foundUser);
+//            return foundUser;
+//        }else
+//            return null;
+//    }
 
     public String removeUserById(Long id) {
         userRepository.deleteById(id);
