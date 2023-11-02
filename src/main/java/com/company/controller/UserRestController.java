@@ -34,9 +34,4 @@ public class UserRestController {
         return ResponseEntity.ok(user);
     }
 
-//    @PostMapping("/add")
-//    public ResponseEntity<User> addUser(@RequestBody User user) {
-//        userService.addUser(user);
-//        return ResponseEntity.ok(user);
-//    }
 }
