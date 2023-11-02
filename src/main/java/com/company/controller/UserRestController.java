@@ -59,16 +59,20 @@ public class UserRestController {
 //    }
 
 
-    @PostMapping("/update/{id}")
+    @PutMapping("/{id}")
     public ResponseEntity<String> updateUser(@RequestBody UserDTO userDTO, @PathVariable Long id) {
-        User user = new User();
-        user.setName(userDTO.getName());
-        user.setSurname(userDTO.getSurname());
-        user.setEmail(userDTO.getEmail());
-        user.setPassword(userDTO.getPassword());
-        System.out.println("user =" + user);
-        userService.updateUser(id, user);
-        return ResponseEntity.ok("Update successfully");
-    }
+        Optional<User> optionalUser = userService.findById(id);
+        if (optionalUser.isPresent()) {
+            User user = new User();
+            user.setName(userDTO.getName());
+            user.setSurname(userDTO.getSurname());
+            user.setEmail(userDTO.getEmail());
+            user.setPassword(userDTO.getPassword());
+            System.out.println("user =" + user);
+            userService.updateUser(id, user);
+            return ResponseEntity.ok("Update successfully");
+        } else {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("User not found");
+        }
 
-}
+    }
