@@ -70,4 +70,7 @@ public class UserService {
         return userRepository.findUserByEmailAndPassword(email, password);
     }
 
+    public boolean existsById(Long id) {
+        return userRepository.existsById(id);
+    }
 }
