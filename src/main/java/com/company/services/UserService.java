@@ -42,18 +42,6 @@ public class UserService {
         } else
             return null;
     }
-//    public User updateOneUser(Long userId, User newUser) {
-//        Optional<User> user = userRepository.findById(userId);
-//        if(user.isPresent()) {
-//            User foundUser = user.get();
-//            foundUser.setUserName(newUser.getUserName());
-//            foundUser.setPassword(newUser.getPassword());
-//            foundUser.setAvatar(newUser.getAvatar());
-//            userRepository.save(foundUser);
-//            return foundUser;
-//        }else
-//            return null;
-//    }
 
     public String removeUserById(Long id) {
         userRepository.deleteById(id);

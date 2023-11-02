@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/user")
+@RequestMapping("/users")
 public class UserRestController {
     private final UserService userService;
 
@@ -19,44 +19,34 @@ public class UserRestController {
         this.userService = userService;
     }
 
-    @GetMapping("/all")
-    public ResponseEntity<List<User>> get() {
+    @GetMapping()
+    public ResponseEntity<List<User>> getAllUsers() {
         List<User> users = userService.getAll();
         return ResponseEntity.ok(users);
     }
 
-    @PostMapping("/add")
-    public ResponseEntity<User> addUser(@RequestBody UserDTO userDTO) {
+    @GetMapping("/{id}")
+    public ResponseEntity<User> getOneUser(@PathVariable(required = false) Long id) {
+        User user = userService.findById(id).get();
+        return ResponseEntity.ok(user);
+    }
+
+    @PostMapping()
+    public ResponseEntity<User> createUser(@RequestBody UserDTO userDTO) {
         User user = new User();
         user.setName(userDTO.getName());
         user.setSurname(userDTO.getSurname());
         user.setEmail(userDTO.getEmail());
         user.setPassword(userDTO.getPassword());
         userService.addUser(user);
-        return ResponseEntity.ok(user);
+        return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
     @DeleteMapping("/{id}")
-    public String removeUser(@PathVariable Long id) {
+    public ResponseEntity<String> removeUser(@PathVariable Long id) {
         userService.removeUserById(id);
-        return "delete successfully";
+        return ResponseEntity.ok("\"delete successfully\"");
     }
-
-//    @PostMapping("/update/{id}")
-//    public ResponseEntity<String> updateUser(@RequestBody UserDTO userDTO, @PathVariable Long id) {
-//        Optional<User> optionalUser = userService.findById(id);
-//        if (optionalUser.isPresent()) {
-//            User user = optionalUser.get();
-//            user.setName(userDTO.getName());
-//            user.setSurname(userDTO.getSurname());
-//            user.setEmail(userDTO.getEmail());
-//            user.setPassword(userDTO.getPassword());
-//            userService.updateUser(id, user);
-//            return ResponseEntity.ok("Update successfully");
-//        } else {
-//            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("User not found");
-//        }
-//    }
 
 
     @PutMapping("/{id}")
@@ -74,5 +64,5 @@ public class UserRestController {
         } else {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("User not found");
         }
-
     }
+}
