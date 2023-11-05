@@ -1,7 +1,5 @@
 package com.company.services;
 
-import com.company.dao.StudentRepository;
-import com.company.entity.Student;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 
@@ -66,6 +64,35 @@ public class StudentService {
 
     public Student getOneStudentByStudentName(String name) {
         return studentRepository.findByName(name);
+    }
+
+    private List<Book> convertToBookList(List<BookDTO> bookDTOList) {
+        return bookDTOList.stream().map(this::convertToBookEntity).collect(Collectors.toList());
+    }
+
+    private Book convertToBookEntity(BookDTO bookDTO) {
+        Book book = new Book();
+        book.setId(bookDTO.getId());
+        book.setName(bookDTO.getName());
+        // Yeni özellikler set ediliyor, AuthorDTO'dan Author nesnesine dönüştürme:
+        book.setAuthor(convertToAuthorEntity(bookDTO.getAuthorId()));
+        return book;
+    }
+
+    private Author convertToAuthorEntity(Long authorId) {
+        Author author = new Author();
+        // Burada gerekli AuthorDTO'yu almak için AuthorRepository gibi bir şeye ihtiyacınız olacak
+        // Bu örnekde AuthorRepository kullanarak örnek bir durum göstereceğim
+        Optional<AuthorDTO> optionalAuthorDTO = authorRepository.findById(authorId);
+        if (optionalAuthorDTO.isPresent()) {
+            AuthorDTO authorDTO = optionalAuthorDTO.get();
+            author.setId(authorDTO.getId());
+            author.setName(authorDTO.getName());
+            author.setAge(authorDTO.getAge());
+            author.setEmail(authorDTO.getEmail());
+            author.setPassword(authorDTO.getPassword());
+        }
+        return author;
     }
 
 }
