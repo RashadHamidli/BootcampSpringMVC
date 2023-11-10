@@ -1,17 +1,15 @@
 package com.company.controller;
 
+import com.company.dao.request.SignUpRequest;
+import com.company.dao.request.SigninRequest;
+import com.company.dao.response.JwtAuthenticationResponse;
+import com.company.service.AuthenticationService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import com.company.dao.request.SignUpRequest;
-import com.company.dao.request.SigninRequest;
-import com.company.dao.response.JwtAuthenticationResponse;
-import com.company.service.AuthenticationService;
-
-import lombok.RequiredArgsConstructor;
 
 @RestController
 @RequestMapping("/api/v1/auth")
