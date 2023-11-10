@@ -8,10 +8,10 @@
         <version>3.1.0-RC1</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.truongbn</groupId>
-    <artifactId>security</artifactId>
+    <groupId>com.company</groupId>
+    <artifactId>SpringBoot3SpringSecurity6JWTMaster</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>security</name>
+    <name>SpringBoot3SpringSecurity6JWTMaster</name>
 
     <properties>
         <java.version>17</java.version>

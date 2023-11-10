@@ -8,11 +8,13 @@ import org.springframework.web.bind.annotation.RestController;
 import lombok.RequiredArgsConstructor;
 
 @RestController
-@RequestMapping("/api/v1/resource")
 @RequiredArgsConstructor
+@RequestMapping("/api/v1/resource")
 public class AuthorizationController {
     @GetMapping
     public ResponseEntity<String> sayHello() {
         return ResponseEntity.ok("Here is your resource");
     }
 }
+
+
