@@ -1,12 +1,12 @@
-package com.truongbn.security.service.impl;
+package com.company.service.impl;
 
+import com.company.repository.UserRepository;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import com.truongbn.security.repository.UserRepository;
-import com.truongbn.security.service.UserService;
+import com.company.service.UserService;
 
 import lombok.RequiredArgsConstructor;
 

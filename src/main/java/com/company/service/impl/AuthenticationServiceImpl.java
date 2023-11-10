@@ -1,18 +1,18 @@
-package com.truongbn.security.service.impl;
+package com.company.service.impl;
 
+import com.company.repository.UserRepository;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import com.truongbn.security.dao.request.SignUpRequest;
-import com.truongbn.security.dao.request.SigninRequest;
-import com.truongbn.security.dao.response.JwtAuthenticationResponse;
-import com.truongbn.security.entities.Role;
-import com.truongbn.security.entities.User;
-import com.truongbn.security.repository.UserRepository;
-import com.truongbn.security.service.AuthenticationService;
-import com.truongbn.security.service.JwtService;
+import com.company.dao.request.SignUpRequest;
+import com.company.dao.request.SigninRequest;
+import com.company.dao.response.JwtAuthenticationResponse;
+import com.company.entities.Role;
+import com.company.entities.User;
+import com.company.service.AuthenticationService;
+import com.company.service.JwtService;
 
 import lombok.RequiredArgsConstructor;
 

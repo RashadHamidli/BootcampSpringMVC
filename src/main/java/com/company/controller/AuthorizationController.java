@@ -1,4 +1,4 @@
-package com.truongbn.security.controller;
+package com.company.controller;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;

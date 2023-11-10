@@ -1,4 +1,4 @@
-package com.truongbn.security.entities;
+package com.company.entities;
 
 import java.util.Collection;
 import java.util.List;

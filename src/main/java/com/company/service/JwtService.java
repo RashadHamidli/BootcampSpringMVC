@@ -1,4 +1,4 @@
-package com.truongbn.security.service;
+package com.company.service;
 
 import org.springframework.security.core.userdetails.UserDetails;
 

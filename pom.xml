@@ -5,8 +5,8 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.1.0-RC1</version>
-        <relativePath/> <!-- lookup parent from repository -->
+        <version>3.1.5</version>
+        <relativePath/>
     </parent>
     <groupId>com.company</groupId>
     <artifactId>SpringBoot3SpringSecurity6JWTMaster</artifactId>
@@ -14,9 +14,9 @@
     <name>SpringBoot3SpringSecurity6JWTMaster</name>
 
     <properties>
-        <java.version>17</java.version>
+        <java.version>21</java.version>
     </properties>
-    
+
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -67,7 +67,6 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
-
     <dependencyManagement>
         <dependencies>
             <dependency>

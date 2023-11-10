@@ -1,4 +1,4 @@
-package com.truongbn.security.controller;
+package com.company.controller;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -6,10 +6,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.truongbn.security.dao.request.SignUpRequest;
-import com.truongbn.security.dao.request.SigninRequest;
-import com.truongbn.security.dao.response.JwtAuthenticationResponse;
-import com.truongbn.security.service.AuthenticationService;
+import com.company.dao.request.SignUpRequest;
+import com.company.dao.request.SigninRequest;
+import com.company.dao.response.JwtAuthenticationResponse;
+import com.company.service.AuthenticationService;
 
 import lombok.RequiredArgsConstructor;
 

@@ -1,4 +1,4 @@
-package com.truongbn.security.dao.response;
+package com.company.dao.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

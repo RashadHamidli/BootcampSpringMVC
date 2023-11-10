@@ -1,4 +1,4 @@
-package com.truongbn.security.entities;
+package com.company.entities;
 
 public enum Role {
     USER,
